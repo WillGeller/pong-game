@@ -6,6 +6,7 @@ import 'package:flame_behaviors_pong_example/entities/entities.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flame_gamepad/flame_gamepad.dart';
 
 /// The game mode that the game is in.
 enum GameMode {
@@ -64,6 +65,12 @@ class PongGame extends FlameGame
     // Wait until everything is loaded and pause the game.
     await ready();
     paused = true;
+
+    FlameGamepad().setListener((String evtType, String key) {
+      if (key == 'START' && evtType == GAMEPAD_BUTTON_UP) {
+        showPauseMenu();
+      }
+    });
   }
 
   /// Start the current game.
@@ -77,14 +84,14 @@ class PongGame extends FlameGame
     switch (mode) {
       case GameMode.playerVsPlayer:
         await addAll([
-          Paddle.wasd(center: Vector2(16, center.y)),
-          Paddle.arrows(center: Vector2(size.x - 16, center.y)),
+          Paddle.wasd(center: Vector2(size.x - 16, center.y)),
+          Paddle.arrows(center: Vector2(16, center.y)),
         ]);
         break;
       case GameMode.playerVsComputer:
         await addAll([
-          Paddle.autonomous(center: Vector2(16, center.y)),
-          Paddle.arrows(center: Vector2(size.x - 16, center.y)),
+          Paddle.autonomous(center: Vector2(size.x - 16, center.y)),
+          Paddle.arrows(center: Vector2(16, center.y)),
         ]);
         break;
       case GameMode.computerVsComputer:
@@ -120,18 +127,27 @@ class PongGame extends FlameGame
   ) {
     super.onKeyEvent(event, keysPressed);
 
-    if (keysPressed.contains(LogicalKeyboardKey.space) &&
-        !overlays.isActive('start')) {
-      paused = !paused;
-
-      if (paused) {
-        overlays.add('pause');
-      } else {
-        overlays.remove('pause');
-      }
+    if (keysPressed.contains(LogicalKeyboardKey.space)) {
+      showPauseMenu();
     }
 
     // Return handled to prevent macOS noises.
     return KeyEventResult.handled;
+  }
+
+  /// Show the pause overlay
+  void showPauseMenu() {
+    // Don't allow pause menu from start menu
+    if (overlays.isActive('start')) {
+      return;
+    }
+
+    paused = !paused;
+
+    if (paused) {
+      overlays.add('pause');
+    } else {
+      overlays.remove('pause');
+    }
   }
 }
