@@ -57,7 +57,7 @@ class PauseOverlay extends StatelessWidget {
             ),
             const SizedBox(height: Field.width),
             OutlinedButton(
-              key: const Key('computerVsComputer'),
+              key: const Key('resetButton'),
               onPressed: game.reset,
               style: _buttonStyle,
               child: const Text('Reset'),
