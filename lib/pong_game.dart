@@ -100,6 +100,18 @@ class PongGame extends FlameGame
     paused = false;
   }
 
+  /// Reset the game to the start sceen.
+  Future<void> reset() async {
+    overlays
+      ..remove('pause')
+      ..add('start');
+
+    removeAll(children.query<Paddle>());
+    children.query<Ball>().first.reset();
+    playerOneScore!.score = 0;
+    playerTwoScore!.score = 0;
+  }
+
   @override
   @mustCallSuper
   KeyEventResult onKeyEvent(
@@ -107,6 +119,17 @@ class PongGame extends FlameGame
     Set<LogicalKeyboardKey> keysPressed,
   ) {
     super.onKeyEvent(event, keysPressed);
+
+    if (keysPressed.contains(LogicalKeyboardKey.space) &&
+        !overlays.isActive('start')) {
+      paused = !paused;
+
+      if (paused) {
+        overlays.add('pause');
+      } else {
+        overlays.remove('pause');
+      }
+    }
 
     // Return handled to prevent macOS noises.
     return KeyEventResult.handled;

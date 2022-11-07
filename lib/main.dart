@@ -10,6 +10,7 @@ void main() {
       initialActiveOverlays: const ['start'],
       overlayBuilderMap: {
         'start': (context, PongGame game) => StartOverlay(game: game),
+        'pause': (context, PongGame game) => PauseOverlay(game: game),
       },
     ),
   );
