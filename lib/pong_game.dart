@@ -1,12 +1,13 @@
 import 'package:flame/components.dart';
 import 'package:flame/game.dart';
 import 'package:flame/input.dart';
+import 'package:flame_audio/flame_audio.dart';
 import 'package:flame_behaviors_pong_example/components/components.dart';
 import 'package:flame_behaviors_pong_example/entities/entities.dart';
+import 'package:flame_gamepad/flame_gamepad.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flame_gamepad/flame_gamepad.dart';
 
 /// The game mode that the game is in.
 enum GameMode {
@@ -40,6 +41,9 @@ class PongGame extends FlameGame
     camera.viewport = FixedResolutionViewport(Vector2(512, 256));
 
     final Ball ball;
+
+    FlameAudio.bgm.initialize();
+    FlameAudio.bgm.play('music/bg_music.ogg');
 
     await addAll([
       // Draw the field on the screen.

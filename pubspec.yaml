@@ -8,6 +8,7 @@ environment:
 
 dependencies:
   flame: ^1.2.0
+  flame_audio: ^1.3.2
   flame_behaviors: ^0.1.0
   flame_gamepad: ^0.0.2
   flutter:
@@ -19,3 +20,8 @@ dev_dependencies:
     sdk: flutter
   mocktail: ^0.3.0
   very_good_analysis: ^3.0.1
+flutter:
+  assets:
+    - assets/audio/music/bg_music.ogg
+    - assets/audio/sfx/fire_1.mp3
+    - assets/audio/sfx/fire_2.mp3

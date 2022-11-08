@@ -1,4 +1,5 @@
 import 'package:flame/components.dart';
+import 'package:flame_audio/flame_audio.dart';
 import 'package:flame_behaviors/flame_behaviors.dart';
 import 'package:flame_behaviors_pong_example/entities/entities.dart';
 import 'package:flame_behaviors_pong_example/pong_game.dart';
@@ -16,9 +17,11 @@ class ScoringBehavior extends Behavior<Ball> with HasGameRef<PongGame> {
 
     // If we hit the sides, reset the ball.
     if (hitLeft) {
+      FlameAudio.play('sfx/fire_2.mp3');
       gameRef.playerOneScore!.score++;
       parent.reset();
     } else if (hitRight) {
+      FlameAudio.play('sfx/fire_2.mp3');
       gameRef.playerTwoScore!.score++;
       parent.reset();
     }
