@@ -135,6 +135,10 @@ class PongGame extends FlameGame
       showPauseMenu();
     }
 
+    if (keysPressed.contains(LogicalKeyboardKey.keyB)) {
+      addBall();
+    }
+
     // Return handled to prevent macOS noises.
     return KeyEventResult.handled;
   }
@@ -153,5 +157,14 @@ class PongGame extends FlameGame
     } else {
       overlays.remove('pause');
     }
+  }
+
+  /// Adds another ball!
+  Future<void> addBall() async {
+    final Ball ball;
+
+    await add(ball = Ball());
+
+    ball.reset();
   }
 }

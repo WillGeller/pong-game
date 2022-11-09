@@ -59,7 +59,7 @@ class Ball extends Entity with HasGameRef {
   static final _ballSize = Vector2.all(8);
 
   /// The maximum speed of the ball.
-  static const maxSpeed = 150.0;
+  static const maxSpeed = 180.0;
 
   /// The velocity of the ball.
   final velocity = Vector2.zero();
