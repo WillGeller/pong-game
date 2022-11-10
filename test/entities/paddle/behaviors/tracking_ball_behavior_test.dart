@@ -4,8 +4,8 @@ import 'dart:math';
 
 import 'package:flame/extensions.dart';
 import 'package:flame/game.dart';
-import 'package:flame_behaviors_pong_example/entities/entities.dart';
-import 'package:flame_behaviors_pong_example/entities/paddle/behaviors/behaviors.dart';
+import 'package:superpong/entities/entities.dart';
+import 'package:superpong/entities/paddle/behaviors/behaviors.dart';
 import 'package:flame_test/flame_test.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';

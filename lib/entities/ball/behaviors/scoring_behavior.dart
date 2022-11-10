@@ -1,8 +1,8 @@
 import 'package:flame/components.dart';
 import 'package:flame_audio/flame_audio.dart';
 import 'package:flame_behaviors/flame_behaviors.dart';
-import 'package:flame_behaviors_pong_example/entities/entities.dart';
-import 'package:flame_behaviors_pong_example/pong_game.dart';
+import 'package:superpong/entities/entities.dart';
+import 'package:superpong/pong_game.dart';
 
 /// {@template scoring_behavior}
 /// A behavior that adds a point to the score when the ball hits the other side.

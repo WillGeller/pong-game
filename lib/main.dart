@@ -1,7 +1,7 @@
 // @dart=2.9
 import 'package:flame/game.dart';
-import 'package:flame_behaviors_pong_example/pong_game.dart';
-import 'package:flame_behaviors_pong_example/widgets/widgets.dart';
+import 'package:superpong/pong_game.dart';
+import 'package:superpong/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
 void main() {

@@ -2,8 +2,8 @@ import 'package:flame/components.dart';
 import 'package:flame/game.dart';
 import 'package:flame/input.dart';
 import 'package:flame_audio/flame_audio.dart';
-import 'package:flame_behaviors_pong_example/components/components.dart';
-import 'package:flame_behaviors_pong_example/entities/entities.dart';
+import 'package:superpong/components/components.dart';
+import 'package:superpong/entities/entities.dart';
 import 'package:flame_gamepad/flame_gamepad.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -43,7 +43,7 @@ class PongGame extends FlameGame
     final Ball ball;
 
     FlameAudio.bgm.initialize();
-    FlameAudio.bgm.play('music/bg_music.ogg');
+    await FlameAudio.bgm.play('music/bg_music.ogg');
 
     await addAll([
       // Draw the field on the screen.
@@ -131,11 +131,11 @@ class PongGame extends FlameGame
   ) {
     super.onKeyEvent(event, keysPressed);
 
-    if (keysPressed.contains(LogicalKeyboardKey.space)) {
+    if (keysPressed.contains(LogicalKeyboardKey.escape)) {
       showPauseMenu();
     }
 
-    if (keysPressed.contains(LogicalKeyboardKey.keyB)) {
+    if (keysPressed.contains(LogicalKeyboardKey.space)) {
       addBall();
     }
 

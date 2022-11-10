@@ -2,8 +2,8 @@ import 'dart:math';
 
 import 'package:flame/components.dart';
 import 'package:flame_behaviors/flame_behaviors.dart';
-import 'package:flame_behaviors_pong_example/components/components.dart';
-import 'package:flame_behaviors_pong_example/entities/entities.dart';
+import 'package:superpong/components/components.dart';
+import 'package:superpong/entities/entities.dart';
 import 'package:flutter/material.dart';
 
 /// {@template tracking_ball_behavior}
@@ -12,7 +12,7 @@ import 'package:flutter/material.dart';
 class TrackingBallBehavior extends Behavior<Paddle> with HasGameRef {
   /// {@macro tracking_ball_behavior}
   TrackingBallBehavior({
-    this.difficulty = Difficulty.veryeasy,
+    this.difficulty = Difficulty.hard,
     @visibleForTesting Random? random,
   }) : _random = random ?? Random();
 

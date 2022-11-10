@@ -1,5 +1,5 @@
-name: flame_behaviors_pong_example
-description: An example Flame game built with Flame Behaviors.
+name: superpong
+description: A super pong game made with Flutter & Flame.
 publish_to: 'none'
 version: 1.0.0+1
 

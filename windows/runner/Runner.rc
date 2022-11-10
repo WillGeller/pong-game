@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "flame_behaviors_pong_example" "\0"
+            VALUE "FileDescription", "superpong" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "flame_behaviors_pong_example" "\0"
+            VALUE "InternalName", "superpong" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2022 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "flame_behaviors_pong_example.exe" "\0"
-            VALUE "ProductName", "flame_behaviors_pong_example" "\0"
+            VALUE "OriginalFilename", "superpong.exe" "\0"
+            VALUE "ProductName", "superpong" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

@@ -1,8 +1,8 @@
 // ignore_for_file: cascade_invocations
 
 import 'package:flame/components.dart';
-import 'package:flame_behaviors_pong_example/entities/entities.dart';
-import 'package:flame_behaviors_pong_example/entities/paddle/behaviors/behaviors.dart';
+import 'package:superpong/entities/entities.dart';
+import 'package:superpong/entities/paddle/behaviors/behaviors.dart';
 import 'package:flame_test/flame_test.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';

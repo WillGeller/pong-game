@@ -1,6 +1,6 @@
 {
-    "name": "flame_behaviors_pong_example",
-    "short_name": "flame_behaviors_pong_example",
+    "name": "superpong",
+    "short_name": "superpong",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

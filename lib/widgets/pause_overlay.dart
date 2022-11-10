@@ -1,5 +1,6 @@
-import 'package:flame_behaviors_pong_example/components/components.dart';
-import 'package:flame_behaviors_pong_example/pong_game.dart';
+import 'package:flame_audio/flame_audio.dart';
+import 'package:superpong/components/components.dart';
+import 'package:superpong/pong_game.dart';
 import 'package:flutter/material.dart';
 
 /// {@template pause_overlay}
@@ -65,9 +66,9 @@ class PauseOverlay extends StatelessWidget {
             const SizedBox(height: Field.width),
             OutlinedButton(
               key: const Key('settingsButton'),
-              onPressed: game.reset,
+              onPressed: () => FlameAudio.bgm.audioPlayer.setVolume(0),
               style: _buttonStyle,
-              child: const Text('Settings'),
+              child: const Text('Mute Audio'),
             ),
           ],
         ),

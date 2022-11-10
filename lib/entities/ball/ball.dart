@@ -3,8 +3,8 @@ import 'dart:math';
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame_behaviors/flame_behaviors.dart';
-import 'package:flame_behaviors_pong_example/entities/ball/behaviors/behaviors.dart';
-import 'package:flame_behaviors_pong_example/pong_game.dart';
+import 'package:superpong/entities/ball/behaviors/behaviors.dart';
+import 'package:superpong/pong_game.dart';
 import 'package:flutter/material.dart';
 
 /// {@template ball}

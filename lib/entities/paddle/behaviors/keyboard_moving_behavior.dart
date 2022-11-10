@@ -1,7 +1,7 @@
 import 'package:flame/components.dart';
 import 'package:flame_behaviors/flame_behaviors.dart';
-import 'package:flame_behaviors_pong_example/components/components.dart';
-import 'package:flame_behaviors_pong_example/entities/paddle/paddle.dart';
+import 'package:superpong/components/components.dart';
+import 'package:superpong/entities/paddle/paddle.dart';
 import 'package:flutter/services.dart';
 
 /// {@template keyboard_moving_behavior}

@@ -1,6 +1,6 @@
 import 'package:flame/components.dart';
 import 'package:flame/extensions.dart';
-import 'package:flame_behaviors_pong_example/pong_game.dart';
+import 'package:superpong/pong_game.dart';
 import 'package:flutter/material.dart';
 
 /// {@template field}
@@ -14,7 +14,7 @@ class Field extends Component with HasGameRef {
   static const halfWidth = width / 2;
 
   /// The color of the field.
-  static const backgroundColor = Color(0xFF363636);
+  static const backgroundColor = Color.fromARGB(255, 37, 34, 168);
 
   /// The rect used for drawing the middle line.
   static final _lineRect = Vector2.zero() & Vector2(halfWidth, width);

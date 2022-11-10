@@ -2,7 +2,7 @@
 
 import 'dart:ui';
 
-import 'package:flame_behaviors_pong_example/components/components.dart';
+import 'package:superpong/components/components.dart';
 import 'package:flame_test/flame_test.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';

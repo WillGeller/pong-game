@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.flame_behaviors_pong_example">
+    package="com.example.superpong">
    <application
-        android:label="flame_behaviors_pong_example"
+        android:label="superpong"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

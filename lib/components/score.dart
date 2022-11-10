@@ -1,6 +1,6 @@
 import 'package:flame/components.dart';
 import 'package:flame/extensions.dart';
-import 'package:flame_behaviors_pong_example/components/components.dart';
+import 'package:superpong/components/components.dart';
 import 'package:flutter/material.dart';
 
 /// {@template score}

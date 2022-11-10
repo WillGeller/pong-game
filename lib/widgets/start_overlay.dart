@@ -1,5 +1,5 @@
-import 'package:flame_behaviors_pong_example/components/components.dart';
-import 'package:flame_behaviors_pong_example/pong_game.dart';
+import 'package:superpong/components/components.dart';
+import 'package:superpong/pong_game.dart';
 import 'package:flutter/material.dart';
 
 /// {@template start_overlay}

@@ -1,7 +1,7 @@
 import 'package:flame/components.dart';
 import 'package:flame_behaviors/flame_behaviors.dart';
-import 'package:flame_behaviors_pong_example/components/components.dart';
-import 'package:flame_behaviors_pong_example/entities/entities.dart';
+import 'package:superpong/components/components.dart';
+import 'package:superpong/entities/entities.dart';
 
 /// {@template moving_behavior}
 /// A behavior that makes the ball move in a certain direction.

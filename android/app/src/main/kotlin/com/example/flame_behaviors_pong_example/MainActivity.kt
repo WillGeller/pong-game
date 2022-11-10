@@ -1,4 +1,4 @@
-package com.example.flame_behaviors_pong_example
+package com.example.superpong
 
 import io.flutter.embedding.android.FlutterActivity
 
