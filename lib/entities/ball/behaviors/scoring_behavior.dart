@@ -17,12 +17,18 @@ class ScoringBehavior extends Behavior<Ball> with HasGameRef<PongGame> {
 
     // If we hit the sides, reset the ball.
     if (hitLeft) {
-      FlameAudio.play('sfx/fire_2.mp3');
       gameRef.playerOneScore!.score++;
-      parent.reset();
     } else if (hitRight) {
-      FlameAudio.play('sfx/fire_2.mp3');
       gameRef.playerTwoScore!.score++;
+    } else {
+      return;
+    }
+
+    FlameAudio.play('sfx/fire_2.mp3');
+
+    if (parent != parent.parent!.children.query<Ball>().first) {
+      parent.parent!.remove(parent);
+    } else {
       parent.reset();
     }
   }

@@ -118,9 +118,16 @@ class PongGame extends FlameGame
       ..add('start');
 
     removeAll(children.query<Paddle>());
-    children.query<Ball>().first.reset();
     playerOneScore!.score = 0;
     playerTwoScore!.score = 0;
+
+    children.query<Ball>().forEach((ball) {
+      if (ball == children.query<Ball>().first) {
+        ball.reset();
+      } else {
+        remove(ball);
+      }
+    });
   }
 
   @override
