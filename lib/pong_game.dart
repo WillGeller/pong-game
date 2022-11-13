@@ -7,6 +7,7 @@ import 'package:flame_gamepad/flame_gamepad.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get_it/get_it.dart';
 import 'package:superpong/components/components.dart';
 import 'package:superpong/entities/entities.dart';
 import 'package:superpong/state/settings.dart';
@@ -23,12 +24,12 @@ enum GameMode {
   computerVsComputer,
 }
 
+final getIt = GetIt.instance;
+
 /// An example Flame game built with Flame Behaviors.
 class PongGame extends FlameGame
     with HasKeyboardHandlerComponents, HasCollisionDetection {
-  PongGame({required this.settings});
-
-  final SettingsStore settings;
+  static final settingsStore = getIt.get<SettingsStore>();
 
   static final paint = Paint()
     ..color = Colors.white
@@ -46,7 +47,7 @@ class PongGame extends FlameGame
     camera.viewport = FixedResolutionViewport(Vector2(512, 256));
     final Ball ball;
 
-    await settings.initMusic();
+    await settingsStore.initMusic();
 
     await addAll([
       // Draw the field on the screen.

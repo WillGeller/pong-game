@@ -1,7 +1,8 @@
 import 'package:flame/components.dart';
 import 'package:flame/extensions.dart';
-import 'package:superpong/components/components.dart';
 import 'package:flutter/material.dart';
+import 'package:superpong/components/components.dart';
+import 'package:superpong/pong_game.dart';
 
 /// {@template score}
 /// A component that displays the score.
@@ -34,6 +35,8 @@ class Score extends PositionComponent with HasGameRef {
 
   @override
   void render(Canvas canvas) {
-    _textPaint.render(canvas, '$score', Vector2.zero(), anchor: anchor);
+    _textPaint.render(canvas,
+        PongGame.settingsStore.isBgMusicPlaying.toString(), Vector2.zero(),
+        anchor: anchor);
   }
 }

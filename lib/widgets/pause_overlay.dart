@@ -2,21 +2,24 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:get_it/get_it.dart';
 import 'package:superpong/components/components.dart';
 import 'package:superpong/pong_game.dart';
 import 'package:superpong/state/settings.dart';
 
+final getIt = GetIt.instance;
+
 class PauseOverlay extends StatefulWidget {
-  const PauseOverlay({super.key, required this.game, required this.settings});
+  const PauseOverlay({super.key, required this.game});
 
   final PongGame game;
-  final SettingsStore settings;
 
   @override
   PauseOverlayState createState() => PauseOverlayState();
 }
 
 class PauseOverlayState extends State<PauseOverlay> {
+  static final settingsStore = getIt.get<SettingsStore>();
   static final _buttonStyle = ButtonStyle(
     side: MaterialStateProperty.all(
       const BorderSide(
@@ -65,12 +68,13 @@ class PauseOverlayState extends State<PauseOverlay> {
             ),
             const SizedBox(height: Field.width),
             OutlinedButton(
-                key: const Key('toogleAudioButton'),
-                onPressed: widget.settings.toggleMusic,
-                style: _buttonStyle,
-                child: Observer(
-                    builder: (_) =>
-                        Text(widget.settings.toggleMusicButtonTxt))),
+              key: const Key('settingsButton'),
+              onPressed: settingsStore.toggleMusic,
+              style: _buttonStyle,
+              child: Observer(
+                builder: (_) => Text(settingsStore.toggleMusicButtonTxt),
+              ),
+            ),
           ],
         ),
       ),
