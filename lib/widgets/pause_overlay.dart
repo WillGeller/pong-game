@@ -1,18 +1,23 @@
-import 'package:flame_audio/flame_audio.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:superpong/components/components.dart';
 import 'package:superpong/pong_game.dart';
-import 'package:flutter/material.dart';
+import 'package:superpong/state/settings.dart';
 
-/// {@template pause_overlay}
-/// The pause overlay is shown when the game is is paused,
-/// it allows reseting the game and contolling settings
-/// {@endtemplate}
-class PauseOverlay extends StatelessWidget {
-  /// {@macro Pause_overlay}
+class PauseOverlay extends StatefulWidget {
+  final PongGame game;
+
   const PauseOverlay({
     super.key,
     required this.game,
   });
+
+  @override
+  PauseOverlayState createState() => PauseOverlayState();
+}
+
+class PauseOverlayState extends State<PauseOverlay> {
+  final SettingsStore settings = SettingsStore();
 
   static final _buttonStyle = ButtonStyle(
     side: MaterialStateProperty.all(
@@ -31,9 +36,6 @@ class PauseOverlay extends StatelessWidget {
       Colors.white.withOpacity(0.1),
     ),
   );
-
-  /// The game that this overlay belongs to.
-  final PongGame game;
 
   @override
   Widget build(BuildContext context) {
@@ -59,17 +61,17 @@ class PauseOverlay extends StatelessWidget {
             const SizedBox(height: Field.width),
             OutlinedButton(
               key: const Key('resetButton'),
-              onPressed: game.reset,
+              onPressed: () => {}, //game.reset,
               style: _buttonStyle,
               child: const Text('Restart Game'),
             ),
             const SizedBox(height: Field.width),
             OutlinedButton(
-              key: const Key('settingsButton'),
-              onPressed: () => FlameAudio.bgm.audioPlayer.setVolume(0),
-              style: _buttonStyle,
-              child: const Text('Mute Audio'),
-            ),
+                key: const Key('settingsButton'),
+                onPressed: settings.toggleMusic,
+                style: _buttonStyle,
+                child: Observer(
+                    builder: (_) => Text(settings.toggleMusicButtonTxt))),
           ],
         ),
       ),

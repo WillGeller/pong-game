@@ -1,13 +1,13 @@
 import 'package:flame/components.dart';
 import 'package:flame/game.dart';
 import 'package:flame/input.dart';
-import 'package:flame_audio/flame_audio.dart';
 import 'package:superpong/components/components.dart';
 import 'package:superpong/entities/entities.dart';
 import 'package:flame_gamepad/flame_gamepad.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:superpong/state/settings.dart';
 
 /// The game mode that the game is in.
 enum GameMode {
@@ -39,11 +39,10 @@ class PongGame extends FlameGame
   Future<void> onLoad() async {
     // Set the viewport to the original game's size.
     camera.viewport = FixedResolutionViewport(Vector2(512, 256));
-
+    final SettingsStore settings = SettingsStore();
     final Ball ball;
 
-    FlameAudio.bgm.initialize();
-    await FlameAudio.bgm.play('music/bg_music.ogg');
+    settings.initMusic();
 
     await addAll([
       // Draw the field on the screen.
@@ -71,8 +70,12 @@ class PongGame extends FlameGame
     paused = true;
 
     FlameGamepad().setListener((String evtType, String key) {
-      if (key == 'START' && evtType == GAMEPAD_BUTTON_UP) {
+      if (key == 'START' && evtType == GAMEPAD_BUTTON_DOWN) {
         showPauseMenu();
+      }
+
+      if (key == 'A' && evtType == GAMEPAD_BUTTON_DOWN) {
+        addBall();
       }
     });
   }
