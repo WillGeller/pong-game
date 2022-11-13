@@ -65,7 +65,7 @@ class PauseOverlayState extends State<PauseOverlay> {
             ),
             const SizedBox(height: Field.width),
             OutlinedButton(
-                key: const Key('settingsButton'),
+                key: const Key('toogleAudioButton'),
                 onPressed: widget.settings.toggleMusic,
                 style: _buttonStyle,
                 child: Observer(

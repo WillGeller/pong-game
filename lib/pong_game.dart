@@ -1,3 +1,5 @@
+// ignore_for_file: public_member_api_docs, import_of_legacy_library_into_null_safe
+
 import 'package:flame/components.dart';
 import 'package:flame/game.dart';
 import 'package:flame/input.dart';

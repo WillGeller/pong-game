@@ -1,4 +1,5 @@
-// settings.dart
+// ignore_for_file: library_private_types_in_public_api, public_member_api_docs
+
 import 'package:flame_audio/flame_audio.dart';
 import 'package:mobx/mobx.dart';
 
@@ -13,7 +14,7 @@ abstract class _SettingsStore with Store {
 
   @computed
   String get toggleMusicButtonTxt =>
-      '${isBgMusicPlaying ? 'Mute' : 'Un-Mute'} Music';
+      '${isBgMusicPlaying ? 'Mute' : 'Play'} Music';
 
   @action
   Future<void> initMusic() async {

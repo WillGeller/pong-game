@@ -57,24 +57,33 @@ class StartOverlay extends StatelessWidget {
             ),
             const SizedBox(height: Field.width),
             OutlinedButton(
-              key: const Key('computerVsComputer'),
+              key: const Key('computerVsComputerButton'),
               onPressed: () => game.start(GameMode.computerVsComputer),
               style: _buttonStyle,
               child: const Text('Computer vs Computer'),
             ),
             const SizedBox(height: Field.width),
             OutlinedButton(
-              key: const Key('playerVsComputer'),
+              key: const Key('playerVsComputerButton'),
               onPressed: () => game.start(GameMode.playerVsComputer),
               style: _buttonStyle,
               child: const Text('Player vs Computer'),
             ),
             const SizedBox(height: Field.width),
             OutlinedButton(
-              key: const Key('playerVsPlayer'),
+              key: const Key('playerVsPlayerButton'),
               onPressed: () => game.start(GameMode.playerVsPlayer),
               style: _buttonStyle,
               child: const Text('Player vs Player'),
+            ),
+            const SizedBox(height: Field.width),
+            OutlinedButton(
+              key: const Key('settingsButton'),
+              onPressed: () => game.overlays
+                ..remove('start')
+                ..add('pause'),
+              style: _buttonStyle,
+              child: const Text('Settings'),
             ),
           ],
         ),
