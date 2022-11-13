@@ -9,28 +9,28 @@ class SettingsStore = _SettingsStore with _$SettingsStore;
 abstract class _SettingsStore with Store {
   /* rest of the class*/
   @observable
-  bool isBgMusicPlaying = true;
+  bool isBgMusicPlaying = false;
 
   @computed
   String get toggleMusicButtonTxt =>
-      'Turn ${isBgMusicPlaying ? 'off' : 'on'} music';
+      '${isBgMusicPlaying ? 'Mute' : 'Un-Mute'} Music';
 
   @action
-  void initMusic() {
+  Future<void> initMusic() async {
     FlameAudio.bgm.initialize();
-    FlameAudio.bgm.play('music/bg_music.ogg');
+    await FlameAudio.bgm.play('music/bg_music.ogg');
     isBgMusicPlaying = true;
   }
 
   @action
-  void pauseMusic() {
-    FlameAudio.bgm.pause();
+  Future<void> pauseMusic() async {
+    await FlameAudio.bgm.pause();
     isBgMusicPlaying = false;
   }
 
   @action
-  void resumeMusic() {
-    FlameAudio.bgm.resume();
+  Future<void> resumeMusic() async {
+    await FlameAudio.bgm.resume();
     isBgMusicPlaying = true;
   }
 

@@ -33,41 +33,32 @@ mixin _$SettingsStore on _SettingsStore, Store {
     });
   }
 
+  late final _$initMusicAsyncAction =
+      AsyncAction('_SettingsStore.initMusic', context: context);
+
+  @override
+  Future<void> initMusic() {
+    return _$initMusicAsyncAction.run(() => super.initMusic());
+  }
+
+  late final _$pauseMusicAsyncAction =
+      AsyncAction('_SettingsStore.pauseMusic', context: context);
+
+  @override
+  Future<void> pauseMusic() {
+    return _$pauseMusicAsyncAction.run(() => super.pauseMusic());
+  }
+
+  late final _$resumeMusicAsyncAction =
+      AsyncAction('_SettingsStore.resumeMusic', context: context);
+
+  @override
+  Future<void> resumeMusic() {
+    return _$resumeMusicAsyncAction.run(() => super.resumeMusic());
+  }
+
   late final _$_SettingsStoreActionController =
       ActionController(name: '_SettingsStore', context: context);
-
-  @override
-  void initMusic() {
-    final _$actionInfo = _$_SettingsStoreActionController.startAction(
-        name: '_SettingsStore.initMusic');
-    try {
-      return super.initMusic();
-    } finally {
-      _$_SettingsStoreActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
-  void pauseMusic() {
-    final _$actionInfo = _$_SettingsStoreActionController.startAction(
-        name: '_SettingsStore.pauseMusic');
-    try {
-      return super.pauseMusic();
-    } finally {
-      _$_SettingsStoreActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
-  void resumeMusic() {
-    final _$actionInfo = _$_SettingsStoreActionController.startAction(
-        name: '_SettingsStore.resumeMusic');
-    try {
-      return super.resumeMusic();
-    } finally {
-      _$_SettingsStoreActionController.endAction(_$actionInfo);
-    }
-  }
 
   @override
   void toggleMusic() {

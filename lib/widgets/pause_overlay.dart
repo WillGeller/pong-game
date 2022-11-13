@@ -1,3 +1,5 @@
+// ignore_for_file: public_member_api_docs
+
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:superpong/components/components.dart';
@@ -5,20 +7,16 @@ import 'package:superpong/pong_game.dart';
 import 'package:superpong/state/settings.dart';
 
 class PauseOverlay extends StatefulWidget {
-  final PongGame game;
+  const PauseOverlay({super.key, required this.game, required this.settings});
 
-  const PauseOverlay({
-    super.key,
-    required this.game,
-  });
+  final PongGame game;
+  final SettingsStore settings;
 
   @override
   PauseOverlayState createState() => PauseOverlayState();
 }
 
 class PauseOverlayState extends State<PauseOverlay> {
-  final SettingsStore settings = SettingsStore();
-
   static final _buttonStyle = ButtonStyle(
     side: MaterialStateProperty.all(
       const BorderSide(
@@ -61,17 +59,18 @@ class PauseOverlayState extends State<PauseOverlay> {
             const SizedBox(height: Field.width),
             OutlinedButton(
               key: const Key('resetButton'),
-              onPressed: () => {}, //game.reset,
+              onPressed: widget.game.reset,
               style: _buttonStyle,
               child: const Text('Restart Game'),
             ),
             const SizedBox(height: Field.width),
             OutlinedButton(
                 key: const Key('settingsButton'),
-                onPressed: settings.toggleMusic,
+                onPressed: widget.settings.toggleMusic,
                 style: _buttonStyle,
                 child: Observer(
-                    builder: (_) => Text(settings.toggleMusicButtonTxt))),
+                    builder: (_) =>
+                        Text(widget.settings.toggleMusicButtonTxt))),
           ],
         ),
       ),
